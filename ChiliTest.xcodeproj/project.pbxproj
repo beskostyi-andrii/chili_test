@@ -14,6 +14,12 @@
 		66E97A57293DEA6F005EEC5E /* ChiliTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A56293DEA6F005EEC5E /* ChiliTestTests.swift */; };
 		66E97A5F293DEA9B005EEC5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A5E293DEA9B005EEC5E /* Constants.swift */; };
 		66E97A62293DEAD2005EEC5E /* URLLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A61293DEAD2005EEC5E /* URLLinks.swift */; };
+		66E97A64293DEDDA005EEC5E /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A63293DEDDA005EEC5E /* DependencyContainer.swift */; };
+		66E97A66293DEF95005EEC5E /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A65293DEF95005EEC5E /* ResponseModels.swift */; };
+		66E97A68293DF363005EEC5E /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A67293DF363005EEC5E /* Gif.swift */; };
+		66E97A6C293DF427005EEC5E /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A69293DF427005EEC5E /* ApiClient.swift */; };
+		66E97A6D293DF427005EEC5E /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A6A293DF427005EEC5E /* ApiError.swift */; };
+		66E97A6E293DF427005EEC5E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A6B293DF427005EEC5E /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 		66E97A56293DEA6F005EEC5E /* ChiliTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiliTestTests.swift; sourceTree = "<group>"; };
 		66E97A5E293DEA9B005EEC5E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		66E97A61293DEAD2005EEC5E /* URLLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLLinks.swift; sourceTree = "<group>"; };
+		66E97A63293DEDDA005EEC5E /* DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		66E97A65293DEF95005EEC5E /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
+		66E97A67293DF363005EEC5E /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		66E97A69293DF427005EEC5E /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		66E97A6A293DF427005EEC5E /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		66E97A6B293DF427005EEC5E /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,7 @@
 		66E97A4E293DEA43005EEC5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				66E97A67293DF363005EEC5E /* Gif.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +135,7 @@
 		66E97A4F293DEA51005EEC5E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				66E97A63293DEDDA005EEC5E /* DependencyContainer.swift */,
 				66E97A60293DEAC7005EEC5E /* Networking */,
 			);
 			path = Service;
@@ -146,7 +160,11 @@
 		66E97A60293DEAC7005EEC5E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				66E97A69293DF427005EEC5E /* ApiClient.swift */,
+				66E97A6A293DF427005EEC5E /* ApiError.swift */,
+				66E97A6B293DF427005EEC5E /* Endpoint.swift */,
 				66E97A61293DEAD2005EEC5E /* URLLinks.swift */,
+				66E97A65293DEF95005EEC5E /* ResponseModels.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -252,8 +270,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E97A41293DE879005EEC5E /* ContentView.swift in Sources */,
+				66E97A64293DEDDA005EEC5E /* DependencyContainer.swift in Sources */,
 				66E97A62293DEAD2005EEC5E /* URLLinks.swift in Sources */,
+				66E97A6C293DF427005EEC5E /* ApiClient.swift in Sources */,
+				66E97A6E293DF427005EEC5E /* Endpoint.swift in Sources */,
 				66E97A3F293DE879005EEC5E /* ChiliTestApp.swift in Sources */,
+				66E97A6D293DF427005EEC5E /* ApiError.swift in Sources */,
+				66E97A66293DEF95005EEC5E /* ResponseModels.swift in Sources */,
+				66E97A68293DF363005EEC5E /* Gif.swift in Sources */,
 				66E97A5F293DEA9B005EEC5E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
