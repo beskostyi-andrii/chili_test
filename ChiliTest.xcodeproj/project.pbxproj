@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		66E97A3F293DE879005EEC5E /* ChiliTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A3E293DE879005EEC5E /* ChiliTestApp.swift */; };
-		66E97A41293DE879005EEC5E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A40293DE879005EEC5E /* ContentView.swift */; };
 		66E97A43293DE87B005EEC5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66E97A42293DE87B005EEC5E /* Assets.xcassets */; };
 		66E97A46293DE87B005EEC5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66E97A45293DE87B005EEC5E /* Preview Assets.xcassets */; };
 		66E97A57293DEA6F005EEC5E /* ChiliTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A56293DEA6F005EEC5E /* ChiliTestTests.swift */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		66E97A3B293DE879005EEC5E /* ChiliTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChiliTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E97A3E293DE879005EEC5E /* ChiliTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiliTestApp.swift; sourceTree = "<group>"; };
-		66E97A40293DE879005EEC5E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66E97A42293DE87B005EEC5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66E97A45293DE87B005EEC5E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		66E97A54293DEA6F005EEC5E /* ChiliTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChiliTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +107,6 @@
 				66E97A4D293DEA3E005EEC5E /* ViewModel */,
 				66E97A4C293DEA2C005EEC5E /* View */,
 				66E97A3E293DE879005EEC5E /* ChiliTestApp.swift */,
-				66E97A40293DE879005EEC5E /* ContentView.swift */,
 				66E97A42293DE87B005EEC5E /* Assets.xcassets */,
 				66E97A44293DE87B005EEC5E /* Preview Content */,
 			);
@@ -303,7 +300,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66E97A41293DE879005EEC5E /* ContentView.swift in Sources */,
 				66E97A64293DEDDA005EEC5E /* DependencyContainer.swift in Sources */,
 				66E97A62293DEAD2005EEC5E /* URLLinks.swift in Sources */,
 				66E97A6C293DF427005EEC5E /* ApiClient.swift in Sources */,

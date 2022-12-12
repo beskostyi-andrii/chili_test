@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ChiliTestApp: App {
+    init() {
+        DependencyContainer.register(APIClient())
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Search()
         }
     }
 }

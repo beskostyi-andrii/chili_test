@@ -9,8 +9,9 @@ import Foundation
 
 enum Constants {
     static let scheme = "https"
-    static let host = "imdb-api.com"
-    static let baseURL = "\(scheme)://\(host)/en/API"
+    static let host = "api.giphy.com"
+    static let apiVersion = "v1"
+    static let baseURL = "\(scheme)://\(host)/\(apiVersion)"
     
     static let giphyApiKey = "7SMBp1OYZeW7dErbICOuHSX8coZedX1Z"
     

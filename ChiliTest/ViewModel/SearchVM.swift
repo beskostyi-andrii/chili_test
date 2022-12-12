@@ -27,6 +27,8 @@ class SearchVM: iSearchVM, ObservableObject {
     
     @Dependency private(set) var apiClient: APIClient
     
+    var canLoadMore: Bool { pagination.total > items.count }
+    
     private(set) var pagination: Pagination = .init(limit: Constants.itemsLimit)
     
     private var searchTextCancellable: Cancellable?
@@ -35,24 +37,28 @@ class SearchVM: iSearchVM, ObservableObject {
     init() {
         searchTextCancellable = $searchText
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .sink { self.search(query: $0, paginate: false) }
+            .sink { [weak self] in
+                self?.reset()
+                self?.search(query: $0)
+            }
     }
     
     func reset() {
         pagination = .init(limit: Constants.itemsLimit)
+        search(query: searchText)
     }
     
     func loadMore() {
         guard !isPaginate else { return }
-        guard items.count < pagination.total else { return }
+        guard canLoadMore else { return }
         
         isPaginate = true
-        search(query: searchText, paginate: true)
+        search(query: searchText)
     }
 }
 
 private extension SearchVM {
-    private func search(query: String, paginate: Bool) {
+    private func search(query: String) {
         searchCancellable?.cancel()
         
         let params = RequestQuery.SearchGifInterval(q: query, limit: pagination.limit, offset: pagination.offset)
@@ -77,7 +83,7 @@ private extension SearchVM {
     }
     
     private func updatePagination(with responsePagination: ResponseModels.Pagination) {
-        pagination.offset = responsePagination.count
+        pagination.offset += responsePagination.count
         pagination.total = responsePagination.totalCount
     }
     

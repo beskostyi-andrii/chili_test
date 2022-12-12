@@ -150,7 +150,7 @@ extension APIClient {
     func search(_ model: RequestQuery.SearchGifInterval) -> AnyPublisher<ResponseModels.SearchResponse, APIError> {
         var params = APIClient.convertFrom(object: model)
         APIClient.addApiKey(to: &params)
-        let request = APIClient.urlRequest(url: URL.search, method: .get())
+        let request = APIClient.urlRequest(url: URL.search, method: .get(items: params))
         return APIClient.createPublisher(for: request)
     }
 }
