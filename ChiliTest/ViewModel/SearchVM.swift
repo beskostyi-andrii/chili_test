@@ -10,6 +10,7 @@ import Combine
 import os
 
 protocol iSearchVM {
+    var isPaginate: Bool { get set }
     var searchText: String { get set }
     var pagination: Pagination { get }
     var items: [Gif] { get set }
@@ -21,6 +22,8 @@ class SearchVM: iSearchVM, ObservableObject {
     @Published var searchText: String = ""
     @Published var items: [Gif] = []
     @Published var error: Error?
+    
+    @Published var isPaginate = false
     
     @Dependency private(set) var apiClient: APIClient
     
@@ -40,20 +43,24 @@ class SearchVM: iSearchVM, ObservableObject {
     }
     
     func loadMore() {
+        guard !isPaginate else { return }
+        guard items.count < pagination.total else { return }
         
+        isPaginate = true
+        search(query: searchText, paginate: true)
     }
 }
 
 private extension SearchVM {
     private func search(query: String, paginate: Bool) {
-        guard items.count < pagination.total || items.isEmpty else { return }
-        
         searchCancellable?.cancel()
-        let offset = pagination.offset + (paginate ? pagination.limit : 0)
-        let params = RequestQuery.SearchGifInterval(q: query, limit: pagination.limit, offset: offset)
+        
+        let params = RequestQuery.SearchGifInterval(q: query, limit: pagination.limit, offset: pagination.offset)
         searchCancellable = apiClient.search(params)
             .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isPaginate = false
+                
                 switch completion {
                 case .finished: break
                 case .failure(let error):
@@ -70,7 +77,7 @@ private extension SearchVM {
     }
     
     private func updatePagination(with responsePagination: ResponseModels.Pagination) {
-        pagination.offset = responsePagination.offset
+        pagination.offset = responsePagination.count
         pagination.total = responsePagination.totalCount
     }
     
