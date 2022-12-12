@@ -34,7 +34,7 @@ class APIClient {
     
     static var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .useDefaultKeys
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dateDecodingStrategy = .formatted(APIClient.decoderDateFormatter)
         return decoder
     }()
@@ -107,6 +107,32 @@ class APIClient {
             }
             .eraseToAnyPublisher()
     }
+    
+    static func convertFrom<InputObject: Encodable>(object: InputObject) -> [String: Encodable] {
+        do {
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            let json = try encoder.encode(object)
+            
+            let dictionary = (try JSONSerialization.jsonObject(with: json, options: .allowFragments) as? [String: Any] ?? [:])
+                .reduce(into: [String: Encodable]()) { (dict, item) in
+                    if item.value is String {
+                        dict[item.key] = item.value as? String ?? ""
+                    } else if item.value is Int {
+                        dict[item.key] = item.value as? Int ?? 0
+                    } else if item.value is [String] {
+                        dict[item.key] = item.value as? [String] ?? false
+                    }
+                }
+            return  dictionary.mapValues { $0 }
+        } catch {
+            return [:]
+        }
+    }
+    
+    static func addApiKey(to dictionary: inout [String: Encodable]) {
+        dictionary["api_key"] = Constants.giphyApiKey
+    }
 }
 
 extension APIClient {
@@ -117,5 +143,14 @@ extension APIClient {
         var apiError: APIError {
             .apiError(code: 9999, reason: message)
         }
+    }
+}
+
+extension APIClient {
+    func search(_ model: RequestQuery.SearchGifInterval) -> AnyPublisher<ResponseModels.SearchResponse, APIError> {
+        var params = APIClient.convertFrom(object: model)
+        APIClient.addApiKey(to: &params)
+        let request = APIClient.urlRequest(url: URL.search, method: .get())
+        return APIClient.createPublisher(for: request)
     }
 }
