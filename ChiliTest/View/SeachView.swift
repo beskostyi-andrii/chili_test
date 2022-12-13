@@ -30,7 +30,7 @@ struct SearchView: View {
             }
             .listStyle(.plain)
         }
-        .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+        .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Start typing here...")
     }
     
     private struct ListItem: View {

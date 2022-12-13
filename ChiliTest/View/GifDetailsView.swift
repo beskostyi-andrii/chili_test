@@ -30,9 +30,9 @@ struct GifDetailsView: View {
     private var gifView: some View {
         Section("Original") {
             AnimatedImage(url: viewModel.gif.original)
-                .indicator(SDWebImageActivityIndicator.medium)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .indicator(SDWebImageActivityIndicator.medium)
+                .aspectRatio(contentMode: .fit)
         }
     }
     
