@@ -21,11 +21,10 @@
 		66E97A6E293DF427005EEC5E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A6B293DF427005EEC5E /* Endpoint.swift */; };
 		66E97A72293DFA48005EEC5E /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A71293DFA48005EEC5E /* SearchVM.swift */; };
 		66E97A74293DFA69005EEC5E /* Seach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A73293DFA69005EEC5E /* Seach.swift */; };
-		66E97A77293E25B8005EEC5E /* SUIGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E97A76293E25B8005EEC5E /* SUIGifView.swift */; };
-		66E97A7A293E286B005EEC5E /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 66E97A79293E286B005EEC5E /* SwiftyGif */; };
 		66F5096929475E620062820E /* RequestQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5096829475E620062820E /* RequestQuery.swift */; };
 		66F5096B294760FA0062820E /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5096A294760FA0062820E /* Pagination.swift */; };
 		66F5096D294761460062820E /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5096C294761460062820E /* Mapper.swift */; };
+		66F50981294865B70062820E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 66F50980294865B70062820E /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 		66E97A6B293DF427005EEC5E /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		66E97A71293DFA48005EEC5E /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		66E97A73293DFA69005EEC5E /* Seach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seach.swift; sourceTree = "<group>"; };
-		66E97A76293E25B8005EEC5E /* SUIGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIGifView.swift; sourceTree = "<group>"; };
 		66F5096829475E620062820E /* RequestQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestQuery.swift; sourceTree = "<group>"; };
 		66F5096A294760FA0062820E /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		66F5096C294761460062820E /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
@@ -66,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66E97A7A293E286B005EEC5E /* SwiftyGif in Frameworks */,
+				66F50981294865B70062820E /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +122,6 @@
 		66E97A4C293DEA2C005EEC5E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				66E97A75293E2537005EEC5E /* Shared */,
 				66E97A73293DFA69005EEC5E /* Seach.swift */,
 			);
 			path = View;
@@ -186,14 +183,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		66E97A75293E2537005EEC5E /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				66E97A76293E25B8005EEC5E /* SUIGifView.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,7 +200,7 @@
 			);
 			name = ChiliTest;
 			packageProductDependencies = (
-				66E97A79293E286B005EEC5E /* SwiftyGif */,
+				66F50980294865B70062820E /* SDWebImageSwiftUI */,
 			);
 			productName = ChiliTest;
 			productReference = 66E97A3B293DE879005EEC5E /* ChiliTest.app */;
@@ -264,7 +253,7 @@
 			);
 			mainGroup = 66E97A32293DE879005EEC5E;
 			packageReferences = (
-				66E97A78293E286B005EEC5E /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				66F5097F294865B70062820E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 66E97A3C293DE879005EEC5E /* Products */;
 			projectDirPath = "";
@@ -306,7 +295,6 @@
 				66E97A6E293DF427005EEC5E /* Endpoint.swift in Sources */,
 				66E97A3F293DE879005EEC5E /* ChiliTestApp.swift in Sources */,
 				66E97A6D293DF427005EEC5E /* ApiError.swift in Sources */,
-				66E97A77293E25B8005EEC5E /* SUIGifView.swift in Sources */,
 				66E97A66293DEF95005EEC5E /* ResponseModels.swift in Sources */,
 				66E97A68293DF363005EEC5E /* Gif.swift in Sources */,
 				66E97A72293DFA48005EEC5E /* SearchVM.swift in Sources */,
@@ -578,21 +566,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		66E97A78293E286B005EEC5E /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+		66F5097F294865B70062820E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		66E97A79293E286B005EEC5E /* SwiftyGif */ = {
+		66F50980294865B70062820E /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 66E97A78293E286B005EEC5E /* XCRemoteSwiftPackageReference "SwiftyGif" */;
-			productName = SwiftyGif;
+			package = 66F5097F294865B70062820E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

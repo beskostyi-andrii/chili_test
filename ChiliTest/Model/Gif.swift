@@ -9,5 +9,6 @@ import Foundation
 
 struct Gif: Identifiable {
     let id: String
-    let url: URL
+    let original: URL
+    let preview: URL
 }

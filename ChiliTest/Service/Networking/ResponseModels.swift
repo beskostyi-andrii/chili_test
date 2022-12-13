@@ -16,6 +16,15 @@ enum ResponseModels {
     
     struct Gif: Codable {
         let id: String
+        let images: Images
+    }
+    
+    struct Images: Codable {
+        let previewGif: GifImages
+        let original: GifImages
+    }
+    
+    struct GifImages: Codable {
         let url: String
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import SwiftyGif
+import SDWebImageSwiftUI
 
 struct Search: View {
     @StateObject private var viewModel: SearchVM = .init()
@@ -16,7 +16,7 @@ struct Search: View {
         NavigationView {
             List {
                 ForEach(viewModel.items) { item in
-                    Text(item.url.lastPathComponent).lineLimit(1)
+                    ListItem(gif: item)
                 }
                 
                 if viewModel.canLoadMore {
@@ -27,5 +27,21 @@ struct Search: View {
             .listStyle(.plain)
         }
         .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+    }
+    
+    private struct ListItem: View {
+        let gif: Gif
+        
+        var body: some View {
+            HStack {
+                AnimatedImage(url: gif.preview)
+                    .indicator(SDWebImageActivityIndicator.medium)
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                    .scaledToFill()
+                
+                Text(gif.id).lineLimit(1)
+            }
+        }
     }
 }
