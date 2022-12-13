@@ -15,7 +15,7 @@ struct ChiliTestApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Search()
+            SearchView()
         }
     }
 }

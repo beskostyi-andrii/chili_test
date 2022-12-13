@@ -1,5 +1,5 @@
 //
-//  Seach.swift
+//  SearchView.swift
 //  ChiliTest
 //
 //  Created by Andrii Beskostyi on 05.12.2022.
@@ -9,14 +9,18 @@ import Foundation
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct Search: View {
+struct SearchView: View {
     @StateObject private var viewModel: SearchVM = .init()
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.items) { item in
-                    ListItem(gif: item)
+                    NavigationLink {
+                        GifDetailsView(gif: item)
+                    } label: {
+                        ListItem(gif: item)
+                    }
                 }
                 
                 if viewModel.canLoadMore {

@@ -18,7 +18,6 @@ enum Mapper {
                    altText: gifDetailsResponse.altText,
                    username: gifDetailsResponse.username,
                    source: URL(string: gifDetailsResponse.source ?? ""),
-                   rating: gifDetailsResponse.rating,
-                   importDatetime: gifDetailsResponse.importDatetime)
+                   rating: gifDetailsResponse.rating)
     }
 }

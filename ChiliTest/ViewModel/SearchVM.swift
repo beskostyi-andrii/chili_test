@@ -58,7 +58,7 @@ class SearchVM: iSearchVM, ObservableObject {
 }
 
 private extension SearchVM {
-    private func search(query: String) {
+    func search(query: String) {
         searchCancellable?.cancel()
         
         let params = RequestQuery.SearchGifInterval(q: query, limit: pagination.limit, offset: pagination.offset)
@@ -77,17 +77,17 @@ private extension SearchVM {
             })
     }
     
-    private func sink(received response: ResponseModels.SearchResponse) {
+    func sink(received response: ResponseModels.SearchResponse) {
         updatePagination(with: response.pagination)
         consumeItems(from: response)
     }
     
-    private func updatePagination(with responsePagination: ResponseModels.Pagination) {
+    func updatePagination(with responsePagination: ResponseModels.Pagination) {
         pagination.offset += responsePagination.count
         pagination.total = responsePagination.totalCount
     }
     
-    private func consumeItems(from response: ResponseModels.SearchResponse) {
+    func consumeItems(from response: ResponseModels.SearchResponse) {
         let newElements = response.data.map { Mapper.gif(from: $0) }
         if response.pagination.offset == 0 {
             self.items = newElements

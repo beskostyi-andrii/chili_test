@@ -41,10 +41,9 @@ enum ResponseModels {
     struct GifDetails: Codable {
         let id: String
         let title: String
-        let altText: String
+        let altText: String?
         let username: String
         let source: String?
         let rating: String
-        let importDatetime: Date
     }
 }
