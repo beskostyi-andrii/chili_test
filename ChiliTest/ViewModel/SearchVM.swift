@@ -10,24 +10,25 @@ import Combine
 import os
 
 protocol iSearchVM {
+    var items: [Gif] { get set }
+    var isLoading: Bool { get set }
     var isPaginate: Bool { get set }
+    var canLoadMore: Bool { get }
     var searchText: String { get set }
     var pagination: Pagination { get }
-    var items: [Gif] { get set }
     var error: Error? { get set }
     var apiClient: APIClient { get }
 }
 
 class SearchVM: iSearchVM, ObservableObject {
-    @Published var searchText: String = ""
     @Published var items: [Gif] = []
+    @Published var isLoading: Bool = false
+    @Published var isPaginate = false
+    @Published var canLoadMore: Bool = false
+    @Published var searchText: String = ""
     @Published var error: Error?
     
-    @Published var isPaginate = false
-    
     @Dependency private(set) var apiClient: APIClient
-    
-    var canLoadMore: Bool { pagination.total > items.count }
     
     private(set) var pagination: Pagination = .init(limit: Constants.itemsLimit)
     
@@ -60,12 +61,14 @@ class SearchVM: iSearchVM, ObservableObject {
 private extension SearchVM {
     func search(query: String) {
         searchCancellable?.cancel()
+        isLoading = true
         
         let params = RequestQuery.SearchGifInterval(q: query, limit: pagination.limit, offset: pagination.offset)
         searchCancellable = apiClient.search(params)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { [weak self] completion in
                 self?.isPaginate = false
+                self?.isLoading = false
                 
                 switch completion {
                 case .finished: break
@@ -85,6 +88,7 @@ private extension SearchVM {
     func updatePagination(with responsePagination: ResponseModels.Pagination) {
         pagination.offset += responsePagination.count
         pagination.total = responsePagination.totalCount
+        canLoadMore = pagination.total > items.count
     }
     
     func consumeItems(from response: ResponseModels.SearchResponse) {

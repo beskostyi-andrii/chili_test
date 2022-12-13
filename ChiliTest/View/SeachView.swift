@@ -11,26 +11,44 @@ import SDWebImageSwiftUI
 
 struct SearchView: View {
     @StateObject private var viewModel: SearchVM = .init()
+    @State private var selectedGif: Gif?
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.items) { item in
-                    NavigationLink {
-                        GifDetailsView(gif: item)
-                    } label: {
-                        ListItem(gif: item)
-                    }
+            contentBody
+                .sheet(item: $selectedGif) { gif in
+                    GifDetailsView(gif: gif)
                 }
-                
-                if viewModel.canLoadMore {
-                    ProgressView()
-                        .onAppear { viewModel.loadMore() }
-                }
-            }
-            .listStyle(.plain)
         }
         .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Start typing here...")
+    }
+    
+    private var contentBody: some View {
+        List {
+            ForEach(viewModel.items) { item in
+                Button {
+                    selectedGif = item
+                } label: {
+                    ListItem(gif: item)
+                }
+            }
+            
+            if viewModel.canLoadMore {
+                bottomProgressView
+            }
+        }
+        .listStyle(.plain)
+        .overlay {
+            if !viewModel.isPaginate && viewModel.isLoading {
+                ProgressView()
+            }
+        }
+    }
+    
+    private var bottomProgressView: some View {
+        ProgressView()
+            .frame(maxWidth: .infinity)
+            .onAppear { viewModel.loadMore() }
     }
     
     private struct ListItem: View {

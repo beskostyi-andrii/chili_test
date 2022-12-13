@@ -11,11 +11,27 @@ import SDWebImageSwiftUI
 struct GifDetailsView: View {
     @StateObject var viewModel: GifDetailsVM
     
+    @Environment(\.dismiss) var dismiss
+    
     init(gif: Gif) {
         _viewModel = StateObject(wrappedValue: GifDetailsVM(gif: gif))
     }
     
     var body: some View {
+        NavigationView {
+            contentBody
+                .navigationTitle("Details")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem {
+                        closeButton
+                    }
+                }
+                .onAppear { viewModel.fetchDetails() }
+        }
+    }
+    
+    private var contentBody: some View {
         List {
             gifView
             ForEach(viewModel.detailItems) {
@@ -23,8 +39,15 @@ struct GifDetailsView: View {
             }
         }
         .listStyle(.grouped)
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear { viewModel.fetchDetails() }
+    }
+    
+    private var closeButton: some View {
+        Button {
+            dismiss()
+        } label: {
+            Text("Close")
+        }
+
     }
     
     private var gifView: some View {
