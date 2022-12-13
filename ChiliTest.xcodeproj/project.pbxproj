@@ -28,6 +28,7 @@
 		66F5098329486BAE0062820E /* GifDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5098229486BAE0062820E /* GifDetails.swift */; };
 		66F5098529486C840062820E /* GifDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5098429486C840062820E /* GifDetailsVM.swift */; };
 		66F509872948706C0062820E /* GifDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F509862948706C0062820E /* GifDetailsView.swift */; };
+		66F50989294878E70062820E /* GifDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F50988294878E70062820E /* GifDetailItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		66F5098229486BAE0062820E /* GifDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetails.swift; sourceTree = "<group>"; };
 		66F5098429486C840062820E /* GifDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailsVM.swift; sourceTree = "<group>"; };
 		66F509862948706C0062820E /* GifDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailsView.swift; sourceTree = "<group>"; };
+		66F50988294878E70062820E /* GifDetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				66F5096A294760FA0062820E /* Pagination.swift */,
 				66E97A67293DF363005EEC5E /* Gif.swift */,
 				66F5098229486BAE0062820E /* GifDetails.swift */,
+				66F50988294878E70062820E /* GifDetailItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				66F5098329486BAE0062820E /* GifDetails.swift in Sources */,
 				66E97A62293DEAD2005EEC5E /* URLLinks.swift in Sources */,
 				66E97A6C293DF427005EEC5E /* ApiClient.swift in Sources */,
+				66F50989294878E70062820E /* GifDetailItem.swift in Sources */,
 				66E97A6E293DF427005EEC5E /* Endpoint.swift in Sources */,
 				66E97A3F293DE879005EEC5E /* ChiliTestApp.swift in Sources */,
 				66F5098529486C840062820E /* GifDetailsVM.swift in Sources */,

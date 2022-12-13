@@ -9,17 +9,6 @@ import Foundation
 import Combine
 import os
 
-struct GifDetailItem: Identifiable {
-    enum ItemType {
-        case text, url(URL)
-    }
-    
-    var id: String = UUID().uuidString
-    let title: String
-    let value: String
-    let type: ItemType
-}
-
 protocol iGifDetailsVM {
     var gif: Gif { get }
     var isLoading: Bool { get set }
@@ -72,7 +61,10 @@ private extension GifDetailsVM {
             detailItems.append(GifDetailItem(title: "Subtitle", value: altText, type: .text))
         }
         
-        detailItems.append(GifDetailItem(title: "Username", value: details.username, type: .text))
+        if !details.username.isEmpty {
+            detailItems.append(GifDetailItem(title: "Username", value: details.username, type: .text))
+        }
+        
         detailItems.append(GifDetailItem(title: "Rating", value: details.rating, type: .text))
         
         if let url = details.source {
