@@ -13,7 +13,7 @@ enum Constants {
     static let apiVersion = "v1"
     static let baseURL = "\(scheme)://\(host)/\(apiVersion)"
     
-    static let giphyApiKey = "7SMBp1OYZeW7dErbICOuHSX8coZedX1Z"
+    static let giphyApiKey = "v9l6AlM93Ex7oQ59UbWczsbXZW5UMr7d"
     
     static let itemsLimit = 24
 }
