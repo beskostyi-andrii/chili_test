@@ -13,4 +13,8 @@ enum RequestQuery {
         let limit: Int
         let offset: Int
     }
+    
+    struct GifDetails: Encodable {
+        let gifId: String
+    }
 }

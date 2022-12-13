@@ -25,6 +25,7 @@
 		66F5096B294760FA0062820E /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5096A294760FA0062820E /* Pagination.swift */; };
 		66F5096D294761460062820E /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5096C294761460062820E /* Mapper.swift */; };
 		66F50981294865B70062820E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 66F50980294865B70062820E /* SDWebImageSwiftUI */; };
+		66F5098329486BAE0062820E /* GifDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F5098229486BAE0062820E /* GifDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		66F5096829475E620062820E /* RequestQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestQuery.swift; sourceTree = "<group>"; };
 		66F5096A294760FA0062820E /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		66F5096C294761460062820E /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		66F5098229486BAE0062820E /* GifDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +142,7 @@
 			children = (
 				66E97A67293DF363005EEC5E /* Gif.swift */,
 				66F5096A294760FA0062820E /* Pagination.swift */,
-				66F5096C294761460062820E /* Mapper.swift */,
+				66F5098229486BAE0062820E /* GifDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,6 +150,7 @@
 		66E97A4F293DEA51005EEC5E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				66F5096C294761460062820E /* Mapper.swift */,
 				66E97A63293DEDDA005EEC5E /* DependencyContainer.swift */,
 				66E97A60293DEAC7005EEC5E /* Networking */,
 			);
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E97A64293DEDDA005EEC5E /* DependencyContainer.swift in Sources */,
+				66F5098329486BAE0062820E /* GifDetails.swift in Sources */,
 				66E97A62293DEAD2005EEC5E /* URLLinks.swift in Sources */,
 				66E97A6C293DF427005EEC5E /* ApiClient.swift in Sources */,
 				66E97A6E293DF427005EEC5E /* Endpoint.swift in Sources */,

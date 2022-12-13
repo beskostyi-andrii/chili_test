@@ -33,4 +33,18 @@ enum ResponseModels {
         let count: Int
         let offset: Int
     }
+    
+    struct GifDetailsResponse: Codable {
+        let data: GifDetails
+    }
+    
+    struct GifDetails: Codable {
+        let id: String
+        let title: String
+        let altText: String
+        let username: String
+        let source: String?
+        let rating: String
+        let importDatetime: Date
+    }
 }

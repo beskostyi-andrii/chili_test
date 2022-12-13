@@ -21,4 +21,8 @@ extension URL {
     static var search: URL {
         gifs.appendingPathComponent("search")
     }
+    
+    static func gifDetails(id: String) -> URL {
+        gifs.appendingPathComponent(id)
+    }
 }

@@ -153,4 +153,11 @@ extension APIClient {
         let request = APIClient.urlRequest(url: URL.search, method: .get(items: params))
         return APIClient.createPublisher(for: request)
     }
+    
+    func gifDetails(id: String) -> AnyPublisher<ResponseModels.GifDetailsResponse, APIError> {
+        var params: [String: Encodable] = [:]
+        APIClient.addApiKey(to: &params)
+        let request = APIClient.urlRequest(url: URL.gifDetails(id: id), method: .get(items: params))
+        return APIClient.createPublisher(for: request)
+    }
 }
